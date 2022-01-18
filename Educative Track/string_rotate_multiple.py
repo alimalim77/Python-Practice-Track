@@ -24,7 +24,7 @@ def leftrotate(name,number):
 
 def rightrotate(name,number):
     rot = int(number) % len(name)
-    return name[rot:]+ name[:rot]
+    return name[len(name)-rot:]+ name[:len(name)-rot]
 
 inp = input("Enter the choice")
 
