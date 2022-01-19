@@ -14,7 +14,7 @@ while i<len(a) and j<len(b):
         i = i + 1
     elif a[i] > b[j]:
         j = j + 1
-    elif a[i]==b[i] and b[i] != b[j-1]:
+    elif a[i]==b[j] and b[j] != b[j-1]:
         c.append(b[j])
         i = i+1 
         j = j+1
