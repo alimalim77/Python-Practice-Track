@@ -23,48 +23,38 @@ mystr2 = input()
 lione = list()
 litwo = list()
 
-for i in mystr1:
-    if i.isdigit():
-        lione.append(i)
+for i in range(len(mystr1)):
+    if mystr1[i].isdigit() and mystr1[i] != 0:
+        lione.append(int(mystr1[i]))
 
-for i in mystr2:
-    if i.isdigit():
-        litwo.append(i)
-
-print(lione)
-print(litwo)
-newone = list(map(int,lione))
-newtwo = list(map(int,litwo))
+for i in range(len(mystr2)):
+    if mystr2[i].isdigit() and mystr2[i] != 0:
+        litwo.append(int(mystr2[i]))
 
 lithree = list()
 ctr = 0
-ct1= 0
-ct2 = 0
-for i in range(len(newone)+len(newtwo)):
+for i in range(len(lione)+len(litwo)):
     
-    if not newone:
-        while newtwo:
-            lithree.append(newtwo.pop(0))
+    if not lione:
+        while litwo:
+            lithree.append(litwo.pop(0))
         break
 
-    if not newtwo:
-        while newone:
-            lithree.append(newone.pop(0))
+    if not litwo:
+        while lione:
+            lithree.append(lione.pop(0))
         break
     
-    if ctr%2 == 0 and newone:
-        lithree.append(newone.pop(0))
+    if ctr%2 == 0 and lione:
+        lithree.append(lione.pop(0))
     
-    if ctr%2 != 0 and newtwo:
-        lithree.append(newtwo.pop(0))
-
-    
+    if ctr%2 != 0 and litwo:
+        lithree.append(litwo.pop(0))
     ctr += 1
 
-for i in lithree:
-    if i == 0:
-        lithree.remove(i)
+
 retstr = ""
 for i in lithree:
     retstr = retstr + str(i)
-print(int(retstr))
+print(int(retstr)
+
