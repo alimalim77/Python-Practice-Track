@@ -28,9 +28,10 @@ fib1 = 0
 fib2 = 1
 li = [fib1,fib2]
 while fib2 < thresold:
-    fib1 = fib2
-    li.append(fib1)
+    temp= fib2
     fib2 = fib1 + fib2
+    fib1 = temp
+    li.append(fib1)
 
 if not li:
     print(-1)
