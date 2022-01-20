@@ -1,4 +1,3 @@
-#implementing 1D array
 class array:
     def __init__(self,size):
         self.final_size=size
