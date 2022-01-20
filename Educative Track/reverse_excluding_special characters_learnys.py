@@ -13,10 +13,16 @@ sd&hg#j
 Sample output:
 jg&hd#s
 '''
+
+
+
+
+
 li = []
 
 mystr = input("Enter a string")
 inili = list(mystr)
+
 ctr = 0
 for i in mystr:
     if (ord(i) >= ord('A') and ord(i) <= ord('Z')) or (ord(i) >= ord('a') and ord(i) <= ord('z')) or (ord(i) >= ord('1') and ord(i) <= ord('9')):
@@ -31,7 +37,7 @@ revli  = list(newstr)
 
 ctr=0
 for i in mystr:
-     if (ord(i) >= ord('A') and ord(i) <= ord('Z')) or (ord(i) >= ord('a') and ord(i) <= ord('z')) or (ord(i) >= ord('1') and ord(i) <= ord('9')):
+     if (ord(i) >= ord('A') and ord(i) <= ord('Z')) or (ord(i) >= ord('a') and ord(i) <= ord('z')) or (ord(i) >= ord('0') and ord(i) <= ord('9')):
         inili[ctr] = revli.pop()
      ctr += 1    
 newstr = "".join(inili)
