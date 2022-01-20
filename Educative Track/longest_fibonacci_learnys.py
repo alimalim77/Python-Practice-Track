@@ -26,7 +26,7 @@ thresold = max(inp)
 
 fib1 = 0
 fib2 = 1
-li = [fib1,fib2]
+li = [fib1]
 while fib2 < thresold:
     temp= fib2
     fib2 = fib1 + fib2
