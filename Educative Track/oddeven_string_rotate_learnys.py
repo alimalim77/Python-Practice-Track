@@ -20,15 +20,19 @@ ohell
 rdca
 '''
 def check(n,a):
-    sumcheck = 0
-    for i in n:
-        sumcheck = sumcheck + int(i) 
-    if sumcheck < 0:
-        return -1
-    elif sumcheck % 2 == 0:
-        return a[len(a)-1:] + a[:len(a)-1]
-    elif sumcheck % 2 != 0:
-        return a[2:] + a[:2]
+  sumcheck = 0
+  for i in n:
+    if i == '-':
+      sumcheck = -sumcheck
+      continue
+    sumcheck = sumcheck + int(i) 
+    
+  if sumcheck < 0:
+    return -1
+  elif sumcheck % 2 == 0:
+    return a[len(a)-1:] + a[:len(a)-1]
+  elif sumcheck % 2 != 0:
+    return a[2:] + a[:2]
 
 
 li = list(map(str,input().split()))
@@ -46,5 +50,6 @@ for i in tu:
 
 for i in range(len(num)):
     print(check(num[i] , alpha[i]))
+
 
     
