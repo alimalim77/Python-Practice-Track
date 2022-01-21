@@ -39,9 +39,12 @@ stor = ''
 while len(inilist) != 0:
     cont = ""
     while j < num:
+        j = j+1
+        if len(inilist) == 0:
+            continue
         stor = inilist.pop(0)
         cont = cont + stor
-        j = j+1
+        
     j = 0
     numlist.append(cont)
 
