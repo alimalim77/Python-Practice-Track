@@ -44,6 +44,6 @@ for i in range(len(leftstr)):
 if leftstr != mystr2 or rightstr != mystr2:
     print(-1)
 else:
-    print(max(lctr,rctr))
+    print(min(lctr,rctr))
 
 
