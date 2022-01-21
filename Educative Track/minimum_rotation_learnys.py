@@ -14,9 +14,6 @@ Sample Output: 6
 
 '''
 
-from hashlib import new
-
-
 def rotate(mystr1):
         return mystr1[len(mystr1)-1:] + mystr1[:len(mystr1)-1]
 
