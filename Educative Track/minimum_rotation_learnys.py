@@ -14,21 +14,36 @@ Sample Output: 6
 
 '''
 
-def rotate(mystr1):
+from turtle import right
+
+
+def rightrotate(mystr1):
         return mystr1[len(mystr1)-1:] + mystr1[:len(mystr1)-1]
+
+def leftrotate(mystr1):
+        return mystr1[1:] + mystr1[:1]
 
 mystr1,mystr2 = map(str,input().split())
 
-ctr=0
-for i in range(len(mystr1)):
-    mystr1 = rotate(mystr1)
-    ctr += 1
-    if mystr1 == mystr2:
+rctr=0
+rightstr = mystr1
+leftstr = mystr1
+for i in range(len(rightstr)):
+    rightstr = rightrotate(rightstr)
+    rctr += 1
+    if rightstr == mystr2:
         break
 
-if mystr1==mystr2:
-    print(ctr)
-else:
+lctr=0
+for i in range(len(leftstr)):
+    leftstr = rightrotate(leftstr)
+    lctr += 1
+    if leftstr == mystr2:
+        break
+
+if leftstr != mystr2 or rightstr != mystr2:
     print(-1)
+else:
+    print(max(lctr,rctr))
 
 

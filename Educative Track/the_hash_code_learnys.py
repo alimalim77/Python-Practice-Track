@@ -45,4 +45,4 @@ for i in range(len(inplist)):
             a = numdict.get(inplist[i])
             finalstrtwo = finalstrtwo + a[-1]
 
-print(strinp[:2]+finalstrone+finalstrtwo+strinp[-3::])
+print(strinp[-5:-3:1]+finalstrone+finalstrtwo+strinp[-3::])
