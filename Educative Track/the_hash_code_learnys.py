@@ -24,11 +24,9 @@ Explanation:
 The given roll number is 2118523112. The first alphabet of the digits at even places spelled in words is tofto. And the last alphabet of the digits at odd places spelled in words is etoeo. Concatenating them we get toftoetoeo. Prefixing the branch code and suffixing the id number we get 23toftoetoeo112.
 
 '''
-inp = int(input())
-numdict = dict()
-numdict = {'1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','0':'zero'}
 
-strinp = str(inp)
+numdict = {'1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','0':'zero'}
+strinp = input()
 inplist = list(map(str,strinp))
 
 
