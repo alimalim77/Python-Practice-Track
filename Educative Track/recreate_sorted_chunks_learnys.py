@@ -27,7 +27,6 @@ while i < len(mystr):
     tempstr = ""
     while i < len(mystr) and mystr[i].isdigit():
         tempdigit  = tempdigit + str(mystr[i])
-        print(tempdigit)
         i = i + 1
     while i < len(mystr) and mystr[i].isalpha():
         tempstr  = tempstr + mystr[i]
@@ -40,6 +39,11 @@ while i < len(mystr):
 dicstore = dict()
 for i in range(len(lidigit)):
     dicstore[listr[i]] = lidigit[i]
-print(dicstore)
+dic2 = {k: v for k, v in sorted(dicstore.items(), key=lambda item: int(item[1]))}
+finstr  = ""
+for i in dic2.keys():
+    finstr = finstr + i
+print(finstr)
+
     
 
