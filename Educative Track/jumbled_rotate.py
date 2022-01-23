@@ -1,3 +1,4 @@
+
 '''
 You are given a set of strings consisting of digits, alphabets and special characters. 
 From each string extract the digits, find their sum and square it. 
