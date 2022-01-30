@@ -14,6 +14,7 @@ def maxScoreIndices(nums):
             r = lnum.count(0)
             l = rnum.count(1)
             score = r + l
+            print(lnum,rnum,score)
             scores[i] = score
         a = sorted(scores.items(), key = lambda x : x[1],reverse=True)
         
@@ -29,7 +30,6 @@ def maxScoreIndices(nums):
             elif maxnum == i[1]:
                 final.append(i[0])
             ctr +=1
-        
         return final
 
-print(maxScoreIndices([0,0,0]))
+print(maxScoreIndices([0,0,0,1,1,0,1,0,1]))
