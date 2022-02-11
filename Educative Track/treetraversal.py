@@ -74,13 +74,13 @@ class BinaryTree(object):
         while len(one.q) != 0:
             travstr = travstr + str(one.peek().value)
             print(one.peek())
-            one = one.dequeue()
+            start = one.dequeue()
             if start.left:
                 one.enqueue(start.left)
             if start.right:
                 one.enqueue(start.right)
         return travstr
-        
+
 tree = BinaryTree(1)
 tree.root.left = Node(2)
 tree.root.right = Node(3)
