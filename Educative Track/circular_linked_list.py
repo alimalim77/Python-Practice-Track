@@ -1,5 +1,3 @@
-from xml.dom import NoModificationAllowedErr
-
 
 class Node:
     def __init__(self,value):
