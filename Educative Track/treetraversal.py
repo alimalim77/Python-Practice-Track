@@ -49,13 +49,16 @@ class BinaryTree(object):
             traversal = self.preorder_print(start.left, traversal)
             traversal = self.preorder_print(start.right, traversal)
         return traversal
-
     def inorder_print(self, start, traversal):
         """Left->Root->Right"""
+        
         if start:
             traversal = self.inorder_print(start.left, traversal)
             traversal += (str(start.value) + "-")
             traversal = self.inorder_print(start.right, traversal)
+            self.ctr += 1
+            #maxctr = max(maxctr,ctr)
+        print("Max Depth is", ctr)
         return traversal
 
     def postorder_print(self, start, traversal):
@@ -90,5 +93,5 @@ tree.root.right.left = Node(6)
 tree.root.right.right = Node(7)
 
 
-b = tree.print_tree("level")
+b = tree.print_tree("inorder")
 print(b)
