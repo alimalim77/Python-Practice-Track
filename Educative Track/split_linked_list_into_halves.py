@@ -1,16 +1,16 @@
 class Node:
     def __init__(self, data):
-        self.data = data 
+        self.data = data
         self.next = None
 
 
 class CircularLinkedList:
     def __init__(self):
-        self.head = None 
+        self.head = None
 
     def prepend(self, data):
         new_node = Node(data)
-        cur = self.head 
+        cur = self.head
         new_node.next = self.head
 
         if not self.head:
@@ -34,7 +34,7 @@ class CircularLinkedList:
             new_node.next = self.head
 
     def print_list(self):
-        cur = self.head 
+        cur = self.head
 
         while cur:
             print(cur.data)
@@ -53,7 +53,7 @@ class CircularLinkedList:
         return count
 
     def split_list(self):
-        size = len(self)    
+        size = len(self)
 
         if size == 0:
             return None
@@ -78,12 +78,21 @@ class CircularLinkedList:
         while cur1:
             print(cur1.data)
             cur1 = cur1.next
-        
+
         print("\n")
 
         while cur2:
             print(cur2.data)
             cur2 = cur2.next
+
+        def is_circular_linked_list(self, input_list):
+            cur = input_list.head
+            cur = cur.next
+            while cur:
+                if cur == input_list.head:
+                    return True
+                cur = cur.next
+            return False
 
 
 cllist = CircularLinkedList()
