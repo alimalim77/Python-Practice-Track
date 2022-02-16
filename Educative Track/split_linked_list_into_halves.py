@@ -63,28 +63,28 @@ class CircularLinkedList:
         mid = size//2
         count = 0
 
-        prev = None
+        ll2 = CircularLinkedList()
+        temp = None
         cur = self.head
-
-        while cur and count < mid:
+        while count != mid:
+            temp = cur
+            cur = cur.next
             count += 1
-            prev = cur
-            cur = cur.next
-        prev.next = self.head 
+        ll2.head = temp.next
+        temp.next = None
 
-        split_cllist = CircularLinkedList()
-        while cur.next != self.head:
-            split_cllist.append(cur.data)
-            cur = cur.next
-        split_cllist.append(cur.data)
-
-        self.print_list()
-        print("\n")
-        split_cllist.print_list()
-
+        cur1 = self.head
+        cur2 = ll2.head
+        while cur1:
+            print(cur1.data)
+            cur1 = cur1.next
         
-# A -> B -> C -> D -> ...
-# A -> B -> ... and C -> D -> ...
+        print("\n")
+
+        while cur2:
+            print(cur2.data)
+            cur2 = cur2.next
+
 
 cllist = CircularLinkedList()
 cllist.append("A")
@@ -93,5 +93,6 @@ cllist.append("C")
 cllist.append("D")
 cllist.append("E")
 cllist.append("F")
+cllist.print_list()
 
-cllist.split_list()
+print(len(cllist))
