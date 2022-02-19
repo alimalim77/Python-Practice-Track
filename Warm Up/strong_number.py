@@ -1,25 +1,29 @@
 #145
 #1! + 4! + 5!
 # 1 + 24 + 120 = 145
-def factorial(num):
-    finnum = 1
-    for i in range(num,1,-1):
-        print("Fin num is", finnum,i)
-        finnum = finnum * i
-    return finnum
 
-inp = int (input())
-num = inp
+def factorial(inp):
+    mynum = 1
+    for i in range(1,inp+1):
+        mynum = mynum * i
+    return mynum
 
-rem = 0 
+myinp = int(input("Enter a number"))
+start = myinp
 li = []
-while num > 0:
-    rem = num % 10
+rem = 0
+while myinp !=0:
+    rem = myinp % 10
+    myinp //= 10
     li.append(rem)
-    num = num // 10
-flist = []
-print(li)
+summation = 0
 for i in li:
-    flist.append(factorial(i))
-print(sum(flist))
-    
+    summation += factorial(i)
+
+if summation == start:
+    print(True)
+else:
+    print(False)
+
+
+
