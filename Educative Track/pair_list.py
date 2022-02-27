@@ -37,6 +37,11 @@ class DoublyLinkedList:
         cur = self.head
         while cur and cur.val != key:
             cur = cur.next
+        if cur.next == None:
+            cur.next = bon
+            bon.prev = cur 
+            bon.next = None
+            return
         bon.next = cur.next
         cur.next.prev = bon
         bon.prev = cur
@@ -85,37 +90,6 @@ class DoublyLinkedList:
             cur.prev = None
         return
         
-    def deletenode(self,node):
-
-        #Case1
-        if self.head.prev == None and self.head.next == None and self.head == node:
-            self.head = None
-            return
-
-        #Case2
-        if self.head.prev == None and self.head == node:
-            self.head = self.head.next
-            self.head.prev = None
-            return
-
-        #Case3
-        cur = self.head
-        while cur != node and cur.next != None:
-            cur = cur.next
-        if cur == node and cur.next != None:
-            prev = cur.prev
-            prev.next = cur.next
-            cur.next.prev = prev
-            cur.next, cur.prev = None, None
-            return
-        
-        #Case4
-        if cur == node and cur.next == None:
-            cur.prev.next = None
-            cur.prev = None
-        return
-        
-        
 
     def reverse(self):
         if self.head == None:
@@ -132,22 +106,19 @@ class DoublyLinkedList:
         
         self.head = temp.prev
 
-    def removeduplicates(self):
+    def pairlist(self,target):
         ht = {}
+        outlist = []
+        if self.head == None:
+            return
         cur = self.head
         while cur:
-            if cur.val not in ht:
-                ht[cur.val] = 1
-            else:
-                #step1
-                next = cur.next
-                self.deletenode(cur)
-                cur = next
-                continue
+            ht[cur.val] = True
+            if target - cur.val in ht:
+                outlist.append([cur.val,target-cur.val])
             cur = cur.next
-        print(ht)
-
-
+        print(outlist)
+        
     
     def printlist(self):
         print("------")
@@ -158,6 +129,7 @@ class DoublyLinkedList:
             print(cur.val)
             cur = cur.next 
         print("------")
+
 #prepend and add before wrok differently, add before will not work for head and will 
 # require further changes. similar is case with append and add after
 '''
@@ -171,20 +143,12 @@ if cur.prev is None and cur.data == key:
 '''
 
 dd = DoublyLinkedList()
-dd.append(5)
-dd.append(7)
-dd.append(9)
-dd.prepend(2)
-dd.append(15)
-dd.append(74)
-dd.add_after(7,69)
+dd.append(1)
 dd.append(2)
-dd.add_before(15,900)
-dd.append(9)
+dd.append(3)
+dd.append(4)
+dd.pairlist(5)
 dd.printlist()
-dd.removeduplicates()
-dd.printlist()
-
     
 
         
