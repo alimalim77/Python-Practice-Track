@@ -85,18 +85,32 @@ class DoublyLinkedList:
             cur.prev = None
         return
         
+
+    def reverse(self):
+        if self.head == None:
+            return
         
-                 
-            
-            
+        cur = self.head
+        
+        while cur:
+            temp = cur.prev
+            #cur.next = cur.prev
+            cur.prev = cur.next
+            cur.next = temp
+            cur = cur.prev
+        
+        self.head = temp.prev
+
     
     def printlist(self):
+        print("------")
         if not self.head:
             return
         cur = self.head
         while cur:
             print(cur.val)
             cur = cur.next 
+        print("------")
 #prepend and add before wrok differently, add before will not work for head and will 
 # require further changes. similar is case with append and add after
 '''
@@ -120,7 +134,8 @@ dd.add_before(15,900)
 dd.append(9)
 dd.delete(9)
 dd.printlist()
-
+dd.reverse()
+dd.printlist()
     
 
         
