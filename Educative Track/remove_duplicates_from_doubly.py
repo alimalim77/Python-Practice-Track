@@ -85,6 +85,36 @@ class DoublyLinkedList:
             cur.prev = None
         return
         
+    def deletenode(self,node):
+
+        #Case1
+        if self.head.prev == None and self.head.next == None and self.head == node:
+            self.head = None
+            return
+
+        #Case2
+        if self.head.prev == None and self.head == node:
+            self.head = self.head.next
+            self.head.prev = None
+            return
+
+        #Case3
+        cur = self.head
+        while cur != node and cur.next != None:
+            cur = cur.next
+        if cur == node and cur.next != None:
+            prev = cur.prev
+            prev.next = cur.next
+            cur.next.prev = prev
+            cur.next, cur.prev = None, None
+            return
+        
+        #Case4
+        if cur == node and cur.next == None:
+            cur.prev.next = None
+            cur.prev = None
+        return
+        
 
     def reverse(self):
         if self.head == None:
@@ -108,13 +138,11 @@ class DoublyLinkedList:
             if cur.val not in ht:
                 ht[cur.val] = 1
             else:
-                if cur.next:
-                    temp = cur.prev
-                    temp.next = cur.next
-                    cur.next.prev = temp
-                else:
-                    temp = cur.prev
-                    temp.next = None
+                #step1
+                next = cur.next
+                self.deletenode(cur)
+                cur = next
+                continue
             cur = cur.next
         print(ht)
 
@@ -149,7 +177,7 @@ dd.prepend(2)
 dd.append(15)
 dd.append(74)
 dd.add_after(7,69)
-dd.prepend(2)
+dd.append(2)
 dd.add_before(15,900)
 dd.append(9)
 dd.printlist()
