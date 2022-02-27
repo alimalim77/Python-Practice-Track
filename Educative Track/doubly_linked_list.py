@@ -65,7 +65,17 @@ class DoublyLinkedList:
             print(cur.val)
             cur = cur.next 
 #prepend and add before wrok differently, add before will not work for head and will 
-# require further changes
+# require further changes. similar is case with append and add after
+'''
+if cur.next is None and cur.data == key:
+        self.append(data)
+        return
+
+if cur.prev is None and cur.data == key:
+        self.prepend(data)
+        return
+'''
+
 dd = DoublyLinkedList()
 dd.append(5)
 dd.append(7)
