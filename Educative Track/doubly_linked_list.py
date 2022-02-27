@@ -55,6 +55,39 @@ class DoublyLinkedList:
         temp.next = bon
         bon.prev = temp
 
+    def delete(self,key):
+
+        #Case1
+        if self.head.prev == None and self.head.next == None and self.head.val == key:
+            self.head = None
+            return
+
+        #Case2
+        if self.head.prev == None and self.head.val == key:
+            self.head = self.head.next
+            self.head.prev = None
+            return
+
+        #Case3
+        cur = self.head
+        while cur.val != key and cur.next != None:
+            cur = cur.next
+        if cur.val == key and cur.next != None:
+            prev = cur.prev
+            prev.next = cur.next
+            cur.next.prev = prev
+            cur.next, cur.prev = None, None
+            return
+        
+        #Case4
+        if cur.val == key and cur.next == None:
+            cur.prev.next = None
+            cur.prev = None
+        return
+        
+        
+                 
+            
             
     
     def printlist(self):
@@ -85,6 +118,7 @@ dd.add_after(7,69)
 dd.prepend(2)
 dd.add_before(15,900)
 dd.append(9)
+dd.delete(9)
 dd.printlist()
 
     
