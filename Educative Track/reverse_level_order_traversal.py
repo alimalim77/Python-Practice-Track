@@ -105,6 +105,27 @@ print(tree.print_tree("levelorder"))
 from inspect import trace
 from logging import root
 
+class Stack:
+    def __init__(self):
+        self.s = []
+    
+    def push(self,val):
+        self.s.append(val)
+    
+    def pop(self):
+        self.s.pop()
+
+    def isempty(self):
+        if len(self.s) == 0:
+            return True
+
+    def peak(self):
+        return self.s[-1].val
+
+    def totalele(self):
+        return self.s[::-1]
+
+
 
 class Queue:
     def __init__(self):
@@ -123,6 +144,9 @@ class Queue:
     def peak(self):
         if len(self.queue) > 0:
             return self.queue[-1].val
+    
+    
+    
 
 
 class Node(object):
@@ -136,30 +160,33 @@ class BinaryTree(object):
     def __init__(self,root):
         self.root = Node(root)
 
-    def levelorder(self,node):
+    def reverselevelorder(self,node):
         if not node:
             return
         print(node.val)
         q = Queue()
+        s = Stack()
         q.enqueue(node)
-        
-        trav = ""
         while q:
             if q.peak() == None:
-                print(trav)
+                print(s.totalele())
                 return
-            trav += " " + str(q.peak()) + " "
-            
-                
             node1 = q.dequeue()
+            #print(node1.val)
+            s.push(node1.val)
+            print(s.totalele())
             
             if node1.left:
                 q.enqueue(node1.left)
             if node1.right:
                 q.enqueue(node1.right)
             
-    
+            
+            
+        
 
+
+        
 
 tree = BinaryTree(1)
 tree.root.left = Node(2)
@@ -169,5 +196,5 @@ tree.root.left.right = Node(5)
 tree.root.right.left = Node(42)
 tree.root.right.right = Node(57)
 tree.root.right.right.left = Node(65)
-tree.levelorder(tree.root)
+tree.reverselevelorder(tree.root)
     
