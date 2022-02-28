@@ -159,8 +159,6 @@ class BinaryTree(object):
                 q.enqueue(node1.right)
             
     
-
-
 tree = BinaryTree(1)
 tree.root.left = Node(2)
 tree.root.right = Node(3)
