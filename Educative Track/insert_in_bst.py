@@ -36,29 +36,53 @@ class BST(object):
             self._inorder_print_tree(cur_node.left)
             print(str(cur_node.data))
             self._inorder_print_tree(cur_node.right)
-
+    
     def find(self, data):
-        node = self.root
-        def trav(node,data):
+        if self.root:
+            a = self.ins(self.root,data)
+        if self.root:
+            if a:
+                return True
+            else:
+                return False
+        return None
+    
+    def ins(self,node,data):
             if node == None:
-                return 
-            elif data == node.data:
-                print("Value found")
                 return
-            elif data < node.data:
+            print(data,node.data)
+            if node.data == data:
+                return True
+            if data < node.data:
                 if node.left == None:
-                    return 
+                    return False
                 else:
-                    trav(node.left,data)
-            elif data > node.data:
+                    self.ins(node.left,data)
+            if data > node.data:
                 if node.right == None:
-                    return 
+                    return False
                 else:
-                    trav(node.right,data)
-        trav(node,data)
-        
+                    self.ins(node.right,data)
+    
 
+    '''
+    def find(self, data):
+        if self.root:
+            is_found = self._find(self.root,data)
+            if is_found:
+                return True
+            return False
+        else:
+            return None
 
+    def _find(self,cur_node,data):
+        if data > cur_node.data and cur_node.right:
+            return self._find(cur_node.right,data)
+        elif data < cur_node.data and cur_node.left:
+            return self._find(cur_node.left, data)
+        if data == cur_node.data:
+            return True
+    '''
     def is_bst_satisfied(self):
         a = self.checktree(self.root)
         if a == None:
@@ -97,7 +121,7 @@ tree.root.right.left = Node(6)
 tree.root.right.right = Node(7)
 tree.root.right.right.right = Node(8)
 
-bst.find(1)
+print(bst.find(1))
 bst.inorder_print_tree()
 print(bst.is_bst_satisfied())
 print(tree.is_bst_satisfied())
