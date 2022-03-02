@@ -1,16 +1,19 @@
 #n!/(n-r)!
 #n is students
 #r is seats
+
 def fact(n):
-    total = 1
-    for i in range(1,n+1):
-        total *= i
-    return total 
+    val = 1
+    for i in range(n,1,-1):
+        val *=  i
+    return val
+
+ninput = int(input("enter the value of students"))
+rinput = int(input("Enter the valuen of seats"))
+ans = 0
+
+ans = fact(ninput)//fact(ninput-rinput)
+print(ans)
 
 
-
-n = int(input("Enter the student number"))
-r = int(input("Enter the seats"))
-perm = fact(n)/fact(n-r)
-print(perm)
 
