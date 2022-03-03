@@ -1,18 +1,7 @@
-
-from typing import final
-
-def fun(mystr,i = 0):
-    e = False
-    try:
-        print(mystr[i])
-    except:
-        if IndexError:
-            e = True
-    finally:
-        if e:
-            return i
-        return fun(mystr,i+1)
-    #print(i)
+def fun(mystr):
+    if mystr == "":
+        return 0
+    return 1 + fun(mystr[1:])
     
 
 print(fun("kanyeWest"))
