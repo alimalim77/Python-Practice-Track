@@ -4,11 +4,16 @@ def cycshifted(num):
     
     while i <= j:
         mid = (i+j)//2
-        if num[j] < num[mid]:
-            i = mid+1
-        elif num[i] < num[mid]:
+        if mid == 0 and num[mid+1] > num[mid]:
+            return mid,num[mid]
+        if num[mid-1] > num[mid]:
+            return mid,num[mid]
+        if num[i] > num[mid]:
             j = mid-1
+        elif num[j] < num[mid]:
+            i = mid+1
         else:
-            return mid
+            j = mid-1
+        
 
-print(cycshifted([3,4,5,6,7,1,2]))
+print(cycshifted([6,1,2,3,4,5]))
