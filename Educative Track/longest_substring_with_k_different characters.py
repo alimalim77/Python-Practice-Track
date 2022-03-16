@@ -7,6 +7,7 @@ def longestsub(mystr,k):
         win_str = mystr[win_end]
         if len(s) > k:
             win_start += 1
+            s.clear()
         elif len(s) <= k:
             max_len = win_end - win_start
         if win_str not in s:
@@ -15,4 +16,4 @@ def longestsub(mystr,k):
     return max_len
 
 
-print(longestsub('cbbebi',3))
+print(longestsub('araaci',1))
