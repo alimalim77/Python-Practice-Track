@@ -6,16 +6,16 @@ def haspath(graph, node, source, destination):
     for i in graph[source]:
         node.append(i)
         ans = haspath(graph,node,i,destination)
-        a = node.pop()
+        if ans:
+            return True
         
+        a = node.pop()
         if a == destination:
-            #print("Arrived at --", destination)
+            print("Arrived at --", destination)
             return True
         
         print(a)
     
-    if ans:
-        return True
     return False
 
 
@@ -30,4 +30,4 @@ graph = {
 
 
 print(haspath(graph,[],'a','e'))
-print(haspath(graph,[],'a','f'))
+#print(haspath(graph,[],'a','f'))
