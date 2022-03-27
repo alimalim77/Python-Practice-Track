@@ -1,3 +1,4 @@
+from collections import deque
 from ctypes.wintypes import PSHORT
 
 def shortest_path(edges, node_A, node_B):
@@ -14,27 +15,20 @@ def shortest_path(edges, node_A, node_B):
     for i in edges:
         graph[i[0]].append(i[1])
         graph[i[1]].append(i[0])
-    minimum = float("inf")
-    visited = set()
+    visited = set([node_A])
+    queue = deque([(node_A,0)])
     
-    for i in graph[node_A]:
-        visited=set()
-        visited.add(node_A)
-        minimum = min(minimum,check(graph,i,node_B,visited))
-    return minimum
-    
+    while queue:
+        node, distance = queue.popleft()
 
-
-def check(graph, node_A,node_B,visited,path = 1):
-    ini = node_A
-    visited.add(ini)
-    if ini == node_B:
-        return path
-    for i in graph[ini]:
-        if i not in visited:
-            return check(graph,i,node_B,visited,path + 1)
-    return 0
-
+        if node == node_B:
+            return distance
+        
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append((neighbor,distance+1))
+    return -1
 edges = [
   ['a', 'c'],
   ['a', 'b'],
