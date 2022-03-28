@@ -27,7 +27,8 @@ def minSubArrayLen(nums, target):
             
             win_sum += nums[win_end]
             win_end += 1 
-        if min_len == float("inf")
+        if min_len == float("inf"):
+            return 0
         return min_len
     
 
