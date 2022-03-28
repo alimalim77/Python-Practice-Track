@@ -10,11 +10,11 @@ def island_count(grid):
   return count
         
 def explore(grid,r,c,visited):
-  
   if not(0 <= r < len(grid)) or not(0 <= c < len(grid[0])):
     return
   if grid[r][c] == 'W':
-      visited.add((r,c))
+      if (r,c) not in visited:
+        visited.add((r,c))
       return False
   if (r,c) in visited:
     return 
@@ -35,6 +35,4 @@ grid = [
   ['L', 'W', 'W', 'L', 'L'],
   ['L', 'L', 'W', 'W', 'W'],
 ]
-
-
 print(island_count(grid)) # -> 3
