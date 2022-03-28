@@ -10,14 +10,14 @@ Output: 5
 Explanation: We can put 3 'B' in one basket and two 'C' in the other basket. 
 This can be done if we start with the second letter: ['B', 'C', 'B', 'B', 'C']
 '''
-from turtle import right
+
 
 
 def basketcheck(chrs):
     bask = {}
     win_start = 0
     win_end = 0
-    maxlen - float("-inf")
+    maxlen = float("-inf")
 
     for win_end in range(len(chrs)):
         right_fruit = chrs[win_end]
