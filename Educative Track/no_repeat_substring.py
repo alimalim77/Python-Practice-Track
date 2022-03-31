@@ -26,4 +26,6 @@ def norepeat(mystr):
     return maxlen
 
 
-print(norepeat("aabccbb"))
+print(norepeat("aabccbb")) #3
+print(norepeat("abccde")) #3 
+print(norepeat("abbbb")) #2
