@@ -36,4 +36,5 @@ def basketcheck(chrs):
 
 
 
-print(basketcheck(['A','B','C','A','C']))
+print(basketcheck(['A','B','C','A','C'])) #3
+print(basketcheck(['A', 'B', 'C', 'B', 'B', 'C'])) #5
