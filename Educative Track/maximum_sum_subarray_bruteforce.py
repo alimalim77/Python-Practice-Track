@@ -5,7 +5,8 @@ def maxArray(num, k):
             maxsum = num[i:i+k]
     return maxsum
 
-print(maxArray([2,3,4,1,5],2))
+print(maxArray([2,3,4,1,5],2)) #[3,4]
+print(maxArray([2,1,5,1,3,2],3)) #[5,1,3]
 
 
 """

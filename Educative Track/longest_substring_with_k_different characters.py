@@ -16,4 +16,6 @@ def longestsub(mystr,k):
     return max_len
 
 
-print(longestsub('araaci',1))
+print(longestsub('araaci',2)) #4
+print(longestsub('araaci',1)) #2
+print(longestsub('cbbebi',3)) #5
