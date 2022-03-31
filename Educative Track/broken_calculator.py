@@ -1,12 +1,7 @@
-from tracemalloc import start
-
-
 def check(num,fin):
     if num < fin and fin%num == 0:
         return True
     
-
-
 def brokenCalc(startValue, target):
     '''
     ctr = 0
