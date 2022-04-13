@@ -5,8 +5,6 @@ def checker(num):
     else:
         return False
 
-
-
 #Check if the preceeding degits are lesser than the current digit
 def passer(n):
     totlen = len(n)
