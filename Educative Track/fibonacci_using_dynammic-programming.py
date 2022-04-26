@@ -1,5 +1,5 @@
-
 con ={}
+
 def fib(n):
     print(con)
     if n == 1:
@@ -10,6 +10,7 @@ def fib(n):
         return con[n]
     else:
         con[n] =  fib(n-1) + fib(n-2)
-        return con[n]
-
+    return con[n]
+        #if n in con:
+            #return con[n]
 print(fib(7))
