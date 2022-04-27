@@ -9,6 +9,7 @@ def graph(i,point):
             ht[i].append(float("inf"))
             continue
         ht[i].append(distance(tuple(p),i))
+
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
         for i in points:
@@ -28,11 +29,11 @@ class Solution:
         #print(total)
         print(final)
         for i in final:
-            #if len(visited) == edges:
-                #break
+            if len(visited) == edges:
+                break
             
             if i[0] not in visited or i[1] not in visited or :
-                if i[2] == inf: continue
+                if i[2] == float("inf"): continue
                 visited.add(i[1])
                 visited.add(i[0])
                 
