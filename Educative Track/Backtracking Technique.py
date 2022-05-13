@@ -1,4 +1,5 @@
 def bct(n,li = []): 
+    print(li)
     if len(li) >= n:
         return
     for i in range(n):
