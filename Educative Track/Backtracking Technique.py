@@ -1,15 +1,13 @@
 from pyparsing import Word
 
-visited = set()
-def bct(n,check,visited,li = []): 
+
+def bct(n,li = []): 
+    print(li)
     if len(li) >= 3:
-        if "".join(li) not in visited and len(set(li)) == check:
-            visited.add("".join(li))
         return
-    for i in n:
+    for i in Word:
         li.append(i)
-        bct(n,check,visited,li)
+        bct(n,li)
         li.pop()
-newstr = "llo"
-bct(newstr,len(set(newstr)),visited)
-print(visited)
+
+print(bct())
