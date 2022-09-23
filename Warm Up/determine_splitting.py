@@ -1,4 +1,6 @@
-
+#      2
+#  3      5
+# 4     4 7
 # class Node:
 # 	def __init__(self, val):	
 # 		self.val = val
@@ -32,19 +34,18 @@ class Node:
     
     def totalNodes(self,root):
         if root == None:
-            return 0
+            return 0 
         return self.totalNodes(root.left) + 1 + self.totalNodes(root.right)
-
     def nodechecker(self,root,n,c):
-        if not root:
-            return 0
+        if root == None:
+            return 0 
         c = 0
-        c += self.nodechecker(root.left,n,c+1) + 1 + self.nodechecker(root.right,n,c+1)
-        
+        c += self.nodechecker(root.left,n,c) + 1 + self.nodechecker(root.right,n,c)
+
         if c == n//2:
             self.flag = True
-        
         return c
+
 
 root = Node(8)
 root.left = Node(6)
@@ -56,6 +57,7 @@ root.flag = False
 
 
 n = root.totalNodes(root)
+print(n)
 if n% 2 != 0:
     print("NO")
     exit()
