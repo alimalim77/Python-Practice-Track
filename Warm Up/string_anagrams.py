@@ -1,8 +1,9 @@
 # "oidbcaf" and "abc"
 # Permutation in abc, acb, bac, bca, cab, cba
-def permutation_in_string(mystr,pattern):
+def string_anagrams(mystr,pattern):
     matched, win_start = 0,0
     hashmap = {}
+    res = []
 
     for char in pattern:
         if char not in hashmap:
@@ -17,7 +18,7 @@ def permutation_in_string(mystr,pattern):
                 matched += 1
         
         if matched == len(hashmap): #3 and #3
-            return True
+            res.append(win_start)
 
         if win_end >= len(pattern)-1:
             left = mystr[win_start]
@@ -27,10 +28,7 @@ def permutation_in_string(mystr,pattern):
                 if hashmap[left] == 0:
                     matched -= 1
                 hashmap[left] += 1
-    return False
+    return res
 
-print(permutation_in_string("oidbcaf","abc"))
-print(permutation_in_string("odicf","dc"))
-                
-
-        
+print(string_anagrams("ppqp","pq"))
+print(string_anagrams("abbcabc","abc"))
