@@ -1,20 +1,32 @@
-nums = [1,2,3,4,5]
-change = 0
-for i in range(len(nums)-1,0,-1):
-    if nums[i-1] < nums[i]:
-        change += 1
-if change == 0:
-    print(False)
+def maxsum(arr,k):
+    res = 0
+    n = len(arr)
+    maxs = [0]*n
+
+    current = arr[0]
+    maxs[0] = current
+    for i in range(1,n):
+        if current > 0:
+            current += arr[i]
+        else:
+            current = arr[i]
+        maxs[i] = current
+    
+    exact = 0
+    for i in range(k):
+        exact += arr[i]
+    if exact > res:
+        res = exact
+    
+    for i in range(k,n):
+        exact = arr[i] - arr[i-k]
+        if exact > res:
+            res = exact 
+        win = maxs[i-k] + exact
+        if win > ans:
+            ans = win 
+    return ans
+    
 
 
-for i in range(len(nums)):
-    l,r = i+1,len(nums)
-    res = []
-    for j in range(l,r):
-        if nums[j] > nums[i]:
-            res.append(nums[j])
-
-    if len(res) > 1:
-        for j in range(1,len(res)):
-            if res[j] > res[j-1]:
-                print(True)
+print(maxsum([],))
