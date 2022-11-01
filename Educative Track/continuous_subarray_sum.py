@@ -1,29 +1,21 @@
-def fun(creators,ids,views):
-    creatorHashmap = {}
-    for i,j in zip(creators,views):
-        if i not in creatorHashmap:
-            creatorHashmap[i] = 0
-        creatorHashmap[i] += j
-    largest = max(creatorHashmap.values())
-    creatorList = {}
-    for name,view in creatorHashmap.items():
-        if view == largest:
-            creatorList[name] = 0
+def fun(nums,k):	
+	container = {0: -1}
+    curr = 0
         
-    viewmap = {}
-    for i,j,k in zip(creators,views,ids):
-        if i in creatorList:
-                #creatorList[i] = max(j,creatorList[i])
-            if j > creatorList[i]:
-                creatorList[i] = j
-                viewmap[i] = k
-        
-                    
-                
-    res = []
-    for i,j in viewmap.items():
-        res.append([i,j])
-    return res
+	for i, num in enumerate(nums):
+		curr = (curr + num) % k
+		if curr in container:
+		    if i - container[curr] >= 2:
+				return True
+		else:
+			container[curr] = i
+	return False
 
+    #     if curr in container:
+    #         if i - container[curr] >= 2:
+	# 		    return True
+    #     else:
+	# 	    container[curr] = i
+	# return False
 
-print(fun(["a"],["a"],[0]))
+fun([23,2,4,6,7],6)
