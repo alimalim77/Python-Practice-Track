@@ -1,8 +1,6 @@
 def power(x,y,MOD):
     res = 1
-    x = x%MOD
-    if x==0:
-        return 0
+
     while y >0:
         if y & 1:
             res = (res*x)%MOD
