@@ -1,17 +1,21 @@
+from collections import defaultdict
 def longestsub(mystr,k):
-    s = set()
+    s = defaultdict()
     win_start, win_end = 0,0
-    win_str = ""
-    max_len = float('inf')
-    while win_end < len(mystr):
-        win_str = mystr[win_end]
-        if len(s) > k:
+    max_len = float('-inf')
+
+    for _ in range(len(mystr)):
+        if mystr[win_end] not in s:
+            s[mystr[win_end]] = 0
+        s[mystr[win_end]] += 1
+        
+        while len(s) > k:
+            if mystr[win_start] in s:
+                s[mystr[win_start]] -= 1
+            if s[mystr[win_start]] == 0:
+                del s[mystr[win_start]]
             win_start += 1
-            s.clear()
-        elif len(s) <= k:
-            max_len = win_end - win_start
-        if win_str not in s:
-            s.add(win_str)
+        max_len = max(max_len,win_end-win_start+1)
         win_end += 1
     return max_len
 

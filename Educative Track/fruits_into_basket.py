@@ -34,6 +34,30 @@ def basketcheck(chrs):
         maxlen = max(maxlen,win_end-win_start+1)
     return maxlen
 
+# def basketcheck(chrs):
+#     basket = {}
+#     win_start, win_end = 0,0
+#     maxlen = float("-inf")
+
+#     for i in range(len(chrs)):
+#         if chrs[win_end] not in basket:
+#             basket[chrs[win_end]] = 0
+#         basket[chrs[win_end]] += 1
+
+#         while len(basket) > 2:
+#             fr = chrs[win_start]
+#             basket[fr] -= 1
+
+#             if basket[fr] == 0:
+#                 del basket[fr]
+#             win_start += 1
+#         maxlen = max(maxlen,sum(basket.values())) 
+            
+#         win_end += 1
+#     return maxlen
+
+
+
 
 
 print(basketcheck(['A','B','C','A','C'])) #3
